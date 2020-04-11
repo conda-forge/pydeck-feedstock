@@ -1,5 +1,5 @@
 {% set name = "pydeck" %}
-{% set version = "0.2.1" %}
+{% set version = "0.3.0" %}
 
 package:
   name: "{{ name|lower }}"
@@ -22,12 +22,14 @@ requirements:
     - pip
     - python
     - traitlets
+    - numpy
   run:
     - ipykernel
     - ipywidgets
     - jinja2
     - python
     - traitlets
+    - numpy
 
 test:
   imports:
@@ -44,7 +46,7 @@ about:
   license_family: "MIT"
   license_file: "LICENSE.txt"
   summary: "Widget for deck.gl maps"
-  doc_url: "https://deckgl.readthedocs.io/en/latest/"
+  doc_url: "https://pydeck.gl"
   dev_url: "https://github.com/uber/deck.gl/tree/master/bindings/pydeck"
 
 extra:
