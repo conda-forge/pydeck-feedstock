@@ -22,14 +22,14 @@ requirements:
     - pip
     - python
     - traitlets
-    - numpy
+    - numpy >=1.16.4
   run:
     - ipykernel
     - ipywidgets
     - jinja2
     - python
     - traitlets
-    - numpy
+    - {{ pin_compatible('numpy') }}
 
 test:
   imports:
