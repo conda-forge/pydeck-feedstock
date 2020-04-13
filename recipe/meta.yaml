@@ -1,17 +1,17 @@
 {% set name = "pydeck" %}
-{% set version = "0.2.1" %}
+{% set version = "0.3.0" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: "d58bc0a08707a613ccf1aa99ccdab3b040ac6d93c70046ef165cae913b527fd8"
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 14c1f0df51a357d86f6f75b7464a6c2b467da58908a844f210598ba5cdaf3c45
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
   noarch: python
 
 requirements:
@@ -22,12 +22,14 @@ requirements:
     - pip
     - python
     - traitlets
+    - numpy >=1.16.4
   run:
     - ipykernel
     - ipywidgets
     - jinja2
     - python
     - traitlets
+    - {{ pin_compatible('numpy') }}
 
 test:
   imports:
@@ -39,13 +41,13 @@ test:
     - pydeck.widget
 
 about:
-  home: "https://github.com/uber/deck.gl/tree/master/bindings/pydeck"
-  license: "MIT"
-  license_family: "MIT"
-  license_file: "LICENSE.txt"
-  summary: "Widget for deck.gl maps"
-  doc_url: "https://deckgl.readthedocs.io/en/latest/"
-  dev_url: "https://github.com/uber/deck.gl/tree/master/bindings/pydeck"
+  home: https://github.com/uber/deck.gl/tree/master/bindings/pydeck
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE.txt
+  summary: Widget for deck.gl maps
+  doc_url: https://pydeck.gl
+  dev_url: https://github.com/uber/deck.gl/tree/master/bindings/pydeck
 
 extra:
   recipe-maintainers:
