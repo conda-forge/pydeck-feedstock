@@ -5,7 +5,7 @@ Home: https://github.com/uber/deck.gl/tree/master/bindings/pydeck
 
 Package license: MIT
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Widget for deck.gl maps
 
