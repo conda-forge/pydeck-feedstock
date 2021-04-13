@@ -16,6 +16,7 @@ build:
 
 requirements:
   host:
+    - python >=3.6
     - ipykernel
     - ipython
     - jinja2
@@ -24,6 +25,7 @@ requirements:
     - traitlets
     - numpy >=1.16.4
   run:
+    - python >=3.6
     - ipykernel
     - ipywidgets
     - jinja2
