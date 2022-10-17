@@ -42,8 +42,8 @@ test:
 
 about:
   home: https://github.com/visgl/deck.gl/tree/master/bindings/pydeck
-  license: Apache 2.0
-  license_family: APACHE
+  license: Apache-2.0
+  license_family: Apache
   license_file: LICENSE.txt
   summary: Widget for deck.gl maps
   doc_url: https://deckgl.readthedocs.io
