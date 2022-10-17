@@ -1,5 +1,5 @@
 {% set name = "pydeck" %}
-{% set version = "0.7.1" %}
+{% set version = "0.8.0b4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 907601c99f7510e16d27d7cb62bfa145216d166a2b5c9c50cfe2b65b032ebd2e
+  sha256: 103f303ef0a8f18edb10444d8136b901514779e84e340a86218e67427559e6d2
 
 build:
   number: 0
@@ -16,20 +16,18 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python >=3.7
     - ipykernel
     - ipython
     - jinja2
     - pip
-    - python
     - traitlets
     - numpy >=1.16.4
   run:
-    - python >=3.6
+    - python >=3.7
     - ipykernel
     - ipywidgets
     - jinja2
-    - python
     - traitlets
     - {{ pin_compatible('numpy') }}
 
@@ -43,14 +41,15 @@ test:
     - pydeck.widget
 
 about:
-  home: https://github.com/uber/deck.gl/tree/master/bindings/pydeck
-  license: MIT
-  license_family: MIT
+  home: https://github.com/visgl/deck.gl/tree/master/bindings/pydeck
+  license: Apache 2.0
+  license_family: APACHE
   license_file: LICENSE.txt
   summary: Widget for deck.gl maps
-  doc_url: https://pydeck.gl
-  dev_url: https://github.com/uber/deck.gl/tree/master/bindings/pydeck
+  doc_url: https://deckgl.readthedocs.io
+  dev_url: https://github.com/visgl/deck.gl/tree/master/bindings/pydeck
 
 extra:
   recipe-maintainers:
     - ajduberstein
+    - Jesus89
