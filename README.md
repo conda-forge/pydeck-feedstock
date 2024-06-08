@@ -149,4 +149,5 @@ Feedstock Maintainers
 
 * [@Jesus89](https://github.com/Jesus89/)
 * [@ajduberstein](https://github.com/ajduberstein/)
+* [@jan-janssen](https://github.com/jan-janssen/)
 
