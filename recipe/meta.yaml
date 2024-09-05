@@ -19,19 +19,19 @@ requirements:
     - python >=3.8
     - ipykernel
     - ipython
-    - jupyter>=1.0.0
-    - jinja2>=2.10.1
-    - traitlets>=4.3.2
+    - jupyter >=1.0.0
+    - jinja2 >=2.10.1
+    - traitlets >=4.3.2
     - numpy >=1.16.4
     - pip
     - setuptools
     - wheel
   run:
     - python >=3.8
-    - ipykernel>=5.1.2
-    - ipywidgets>=7,<8
-    - jinja2>=2.10.1
-    - traitlets>=4.3.2
+    - ipykernel >=5.1.2
+    - ipywidgets >=7,<8
+    - jinja2 >=2.10.1
+    - traitlets >=4.3.2
     - {{ pin_compatible('numpy') }}
 
 test:
