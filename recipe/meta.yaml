@@ -1,5 +1,6 @@
 {% set name = "pydeck" %}
 {% set version = "0.9.1" %}
+{% set python_min = python_min|default("3.8") %}
 
 package:
   name: {{ name|lower }}
@@ -16,19 +17,20 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - setuptools
     - wheel
     - jinja2 >=2.10.1
     - jupyter >=1.0.0
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - jinja2 >=2.10.1
     - numpy >=1.16.4
+  run_constrained:
     - ipykernel >=5.1.2
     - ipywidgets >=7,<8
-    - traitlets >=4.3.2
+    - traitlets >=4.3.2 
 
 test:
   imports:
@@ -41,7 +43,11 @@ test:
   commands:
     - pip check
   requires:
+    - python ={{ python_min }}
     - pip
+    - ipykernel >=5.1.2
+    - ipywidgets >=7,<8
+    - traitlets >=4.3.2
 
 about:
   home: https://github.com/visgl/deck.gl/tree/master/bindings/pydeck
@@ -56,3 +62,5 @@ extra:
   recipe-maintainers:
     - ajduberstein
     - Jesus89
+    - rxm7706
+
