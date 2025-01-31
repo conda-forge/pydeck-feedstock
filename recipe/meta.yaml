@@ -1,35 +1,40 @@
 {% set name = "pydeck" %}
-{% set version = "0.8.0" %}
+{% set version = "0.9.1" %}
+{% set python_min = python_min|default("3.8") %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 07edde833f7cfcef6749124351195aa7dcd24663d4909fd7898dbd0b6fbc01ec
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pydeck-{{ version }}.tar.gz
+  sha256: f74475ae637951d63f2ee58326757f8d4f9cd9f2a457cf42950715003e2cb605
 
 build:
-  number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script:
+    - rm $SRC_DIR/pyproject.toml    # [unix]
+    - del %SRC_DIR%\pyproject.toml  # [win]
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   noarch: python
+  number: 0
+
 
 requirements:
   host:
-    - python >=3.7
-    - ipykernel
-    - ipython
-    - jinja2
+    - python {{ python_min }}
+    - setuptools
+    - wheel
+    - jinja2 >=2.10.1
+    - jupyter >=1.0.0
     - pip
-    - traitlets
-    - numpy >=1.16.4
   run:
-    - python >=3.7
-    - ipykernel
-    - ipywidgets
-    - jinja2
-    - traitlets
-    - {{ pin_compatible('numpy') }}
+    - python >={{ python_min }}
+    - jinja2 >=2.10.1
+    - numpy >=1.16.4
+  run_constrained:
+    - ipykernel >=5.1.2
+    - ipywidgets >=7,<8
+    - traitlets >=4.3.2 
 
 test:
   imports:
@@ -39,6 +44,14 @@ test:
     - pydeck.io
     - pydeck.nbextension
     - pydeck.widget
+  commands:
+    - pip check
+  requires:
+    - python {{ python_min }}
+    - pip
+    - ipykernel >=5.1.2
+    - ipywidgets >=7,<8
+    - traitlets >=4.3.2
 
 about:
   home: https://github.com/visgl/deck.gl/tree/master/bindings/pydeck
@@ -53,3 +66,4 @@ extra:
   recipe-maintainers:
     - ajduberstein
     - Jesus89
+    - rxm7706
