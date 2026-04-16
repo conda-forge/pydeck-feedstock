@@ -1,5 +1,5 @@
 {% set name = "pydeck" %}
-{% set version = "0.9.1" %}
+{% set version = "0.9.2" %}
 {% set python_min = python_min|default("3.8") %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pydeck-{{ version }}.tar.gz
-  sha256: f74475ae637951d63f2ee58326757f8d4f9cd9f2a457cf42950715003e2cb605
+  sha256: c10d9035e81ead6385264cac8d19402471f6866a15ca1f7df1400f52142bcf87
 
 build:
   script:
@@ -34,7 +34,7 @@ requirements:
   run_constrained:
     - ipykernel >=5.1.2
     - ipywidgets >=7,<8
-    - traitlets >=4.3.2 
+    - traitlets >=4.3.2
 
 test:
   imports:
